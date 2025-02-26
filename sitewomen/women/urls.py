@@ -14,4 +14,3 @@ urlpatterns = [
     path('post/<int:post_id>/', views.show_post, name='post'),
 
 ]
-
