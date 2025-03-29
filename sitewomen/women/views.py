@@ -28,10 +28,11 @@ cats_db = [
 
 
 def index(request):
+    posts = Women.objects.filter(is_published=1)
     data = {
         'title': 'Главная страница',
         'menu': menu,
-        'posts': data_db,
+        'posts': posts,
         'cat_selected': 0,
     }
     return render(request, 'women/index.html', context=data)
@@ -42,7 +43,7 @@ def about(request):
 
 
 def show_post(request, post_slug):
-    post = get_object_or_404(Women, slug=post_slug )
+    post = get_object_or_404(Women,  slug=post_slug )
     data = {
         'title': post.title,
         'menu': menu,
